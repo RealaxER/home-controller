@@ -1,0 +1,31 @@
+[package]
+name = "ota-component"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true  
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+lumi-utils = {path = "../cores/lumi-utils"}
+message = {path = "../cores/message"}
+clap = {version = "4.4.11", features = ["derive", "env"]}
+tokio = {version = "1.35.1", features = ["full"]}
+log = "0.4.20"
+env_logger = { version = "0.10.1" }
+async-trait = "0.1.75"
+serde = {version = "1.0.93",features = ["derive"]}
+reqwest = { version = "0.11.23", features = ["blocking", "json"] }
+serde_json = {version = "1.0"}
+rand = { version = "0.8.5", features = ["getrandom","std_rng","std"] }
+chrono = {version = "0.4", features = ["clock","std"] }
+openssl = { version = "0.10.33", features = ["vendored"] }
+psutil = { version = "3.2.1",    features = ["cpu", "process"] }
+rumqttc = "0.23.0"
+sysinfo = "0.30.5"

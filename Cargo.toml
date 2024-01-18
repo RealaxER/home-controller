@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "packages/ota-component",
+    "packages/io-service",
+    "packages/cores/lumi-utils",
+    "packages/cores/message"
+]
+resolver = "1"
